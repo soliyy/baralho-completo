@@ -31,11 +31,6 @@ export const ProvedorAutenticacao = ({ children }: { children: ReactNode }) => {
     localStorage.removeItem('baralho');
   };
 
-  const atualizarEstadoAutenticacao = () => {
-    const autenticadoLocal = localStorage.getItem('autenticado');
-    setAutenticado(autenticadoLocal === 'true');
-  };
-
   return (
     <ContextoAutenticacao.Provider value={{ autenticado, entrar, sair }}>
       {children}

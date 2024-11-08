@@ -5,11 +5,6 @@ export async function POST(req: NextRequest) {
     const { usuario, senha } = await req.json();
     const usuarioEnv = process.env.NOME_USUARIO;
     const senhaEnv = process.env.SENHA_USUARIO;
-    
-    console.log('NOME_USUARIO do .env:', usuarioEnv);
-    console.log('SENHA_USUARIO do .env:', senhaEnv);
-    console.log('Usuário enviado:', usuario);
-    console.log('Senha enviada:', senha);
 
     if (!usuarioEnv || !senhaEnv) {
       return NextResponse.json({ mensagem: 'Erro de configuração do servidor' }, { status: 500 });
@@ -20,7 +15,7 @@ export async function POST(req: NextRequest) {
     } else {
       return NextResponse.json({ mensagem: 'Credenciais incorretas' }, { status: 401 });
     }
-  } catch (error) {
+  } catch {
     return NextResponse.json({ mensagem: 'Erro ao processar a solicitação' }, { status: 500 });
   }
 }
