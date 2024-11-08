@@ -7,7 +7,7 @@ import { ContextoAutenticacao as AuthContext } from '@context/AuthContext';
 import DashboardClient from '@dashboard/DashboardClient';
 
 const Page = () => {
-    const { autenticado } = useContext(AuthContext) || {};
+  const { autenticado } = useContext(AuthContext) || {};
   const router = useRouter();
 
   useEffect(() => {
@@ -23,6 +23,9 @@ const Page = () => {
   return (
     <div>
       <DashboardClient />
+      <footer style={{ marginTop: '20px', textAlign: 'center', color: '#555' }}>
+        RN558506 LUCAS MARTINS SOLIMAN
+      </footer>
     </div>
   );
 };
